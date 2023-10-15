@@ -350,11 +350,11 @@ public class lab2 {
     public static void write(Hashtable<String, String> reg_codes, ArrayList<String> lines, Hashtable<String, String> label_addresses) {
 
         int pc = 0;
-        for (String str: lines) {
+        for (String str : lines) {
             if (str.indexOf(':') != -1) {
                 str = str.substring(str.indexOf(':')+1, str.length());
             }
-            if ((str.isBlank()) || (str.isEmpty())){
+            if (str.trim().isEmpty()) {
                 continue;
             }
             String[] split = str.trim().split("[' '\\(\\)\\,\\$\\s]+");  
@@ -480,7 +480,7 @@ public class lab2 {
             else if (line.indexOf('#') == 0) {
                 continue;
             } 
-            if (!(line.isBlank()) && !(line.isEmpty())){
+            if (!(line.trim().isEmpty())){
                 lines.add(line);
             }
             
